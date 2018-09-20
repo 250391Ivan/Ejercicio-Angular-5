@@ -1,0 +1,50 @@
+<!--Componente  que  muestra  la  infromacion de  las  monedas -->
+<!-- Una disculpa  por  que se  llama  Carro  el  componente, y  no me  iba  dar  tiempo de  volver a crear y  cambiar el nombre-->
+  <ul class="collection with-header" *ngIf="!bandera_lista">
+        <li class="collection-header"><h4 class="center">Diferentes  Tipos de Monedas</h4></li>
+        <li class="collection-item" *ngFor="let result of resultado  " data-target="modal1">
+        	<div  *ngIf="(result.id % 2) == 0 "> <a   class="collection-item"  (click)="id_moneda(result.id)" >{{result.id}}-.{{result.name}} <i class="fa fa-arrow-circle-right"> ...</i> 
+             </a>
+      </div></li>
+     
+      </ul>
+      <!-- Seccion  para  los  detalles  de  las  listas  unas  ves  que  se  de  click Use  banderas  para  mostrar  y  ocultar-->
+       <div>
+         <ul class="collection with-header"  *ngIf="bandera">
+        <li class="collection-header"><h4 class="center_blue">Detalles de las Monedas</h4> <a class="arrow_back-effect arrow_back btn exit_button" (click)="return()">Regresar al menu</a></li>
+        <li class="collection-item"  >
+        	<div> <a   class="collection-item"   > <i class="fa fa fa-bitcoin"></i> COIN NAME: <span style="color:black">{{det_monedas.name}}</span>  </a>
+      </div></li>
+       <li class="collection-item"  >
+        	<div> <a   class="collection-item"   > <i class="fa fa fa-vcard-o"></i> RANK: <span style="color:black">{{det_monedas.rank}}</span></a>
+      </div></li>
+       <li class="collection-item"  >
+        	<div> <a   class="collection-item"   ><i class="fa 	fa fa-money"></i> USD PRICE :$<span style="color:black">{{det_monedas.quotes.USD.price}}</span>  </a>
+      </div></li>
+      <li class="collection-item"  >
+        	<div> <a   class="collection-item"   ><i class="fa fa fa-dollar"></i> USD TIPO DE CAMBIO :<span style="color:black"> $19.80 (ESTO NO VENIA EN EL ARREGLO Y SUPUSE QUE ES EL PRECIO DEL DOLAR)</span></a>
+      </div></li>
+         <li class="collection-item"  >
+        	<div> <a   class="collection-item"   > <i class="fa fa fa-credit-card"></i> MXN: <span style="color:black">$18.77 (El precio actual del dolar en Mèxico)</span> </a>
+      </div></li>
+        <li class="collection-item"  >
+        	<div> <a   class="collection-item"   ><i class="fa fa fa-balance-scale"></i> Moneda a MX:<span style="color:black">${{det_monedas.quotes.USD.price/18.77}}</span> </a>
+      </div></li>
+       <li class="collection-item"  >
+        	<div> <a   class="collection-item"   > <i class="fa fa-calendar"></i> Hola hoy es: <span style="color:black">{{fecha | date :  "dd.MM.y"}} </span></a>
+      </div></li>
+       </ul>
+       </div>
+
+     
+      
+            
+            
+        
+       
+
+        
+
+ 
+
+     
